@@ -7,40 +7,42 @@ body {
   justify-content: center;
   align-items: center;
   background-color: black;
+  font-family: 'Courier New', monospace;
 }
 
-/* Container should stay centered */
+/* Terminal Container */
 .terminal-container {
   background-color: #000;
   color: #0f0;
-  font-family: 'Courier New', monospace;
   text-align: left;
   padding: 20px;
-  border-radius: 5px;
-  width: 700px; /* Fixed width */
-  height: 400px; /* Fixed height */
+  border-radius: 8px;
+  width: 720px;
+  height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; /* Ensure horizontal centering */
+  align-items: center;
   box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 2px solid #0f0;
 }
 
-/* Input Group Styling */
+/* Input Group */
 .input-group {
   display: flex;
   align-items: center;
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .prompt {
   color: #0f0;
   font-weight: bold;
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
 input {
@@ -48,26 +50,26 @@ input {
   background: black;
   border: 1px solid #0f0;
   color: #0f0;
-  padding: 10px;
+  padding: 12px;
   font-size: 1rem;
-  font-family: 'Courier New', monospace;
   outline: none;
   caret-color: #0f0;
+  text-align: center;
 }
 
 button {
   background: black;
-  border: 1px solid #0f0;
+  border: 2px solid #0f0;
   color: #0f0;
-  padding: 10px;
+  padding: 10px 16px;
   cursor: pointer;
-  font-family: 'Courier New', monospace;
+  transition: 0.3s;
+  font-weight: bold;
 }
 
 button:hover {
   background: #0f0;
   color: black;
-  transition: 0.3s;
 }
 
 button:disabled {
@@ -76,23 +78,27 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Error & Loading Messages */
+/* Loading and Error Messages */
 .error {
   color: red;
+  font-weight: bold;
 }
 
 .loading {
   color: cyan;
+  font-style: italic;
 }
 
-/* Table Styling */
+/* Results Section */
 .results {
-  margin-top: 20px;
   flex-grow: 1;
   overflow-y: auto;
   width: 100%;
+  padding: 10px;
+  border-top: 1px solid #0f0;
 }
 
+/* Terminal-Style Table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -137,4 +143,17 @@ td {
 h1 {
   text-align: center;
   animation: glow 1.5s infinite alternate;
+  font-size: 1.5rem;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.loading {
+  color: cyan;
+  font-style: italic;
+  animation: blink 1s infinite;
 }
